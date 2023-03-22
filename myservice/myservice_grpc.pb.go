@@ -69,21 +69,19 @@ func (x *myServiceBidirectionalStreamClient) Recv() (*Response, error) {
 }
 
 // MyServiceServer is the server API for MyService service.
-// All implementations must embed UnimplementedMyServiceServer
+// All implementations should embed UnimplementedMyServiceServer
 // for forward compatibility
 type MyServiceServer interface {
 	BidirectionalStream(MyService_BidirectionalStreamServer) error
-	mustEmbedUnimplementedMyServiceServer()
 }
 
-// UnimplementedMyServiceServer must be embedded to have forward compatible implementations.
+// UnimplementedMyServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedMyServiceServer struct {
 }
 
 func (UnimplementedMyServiceServer) BidirectionalStream(MyService_BidirectionalStreamServer) error {
 	return status.Errorf(codes.Unimplemented, "method BidirectionalStream not implemented")
 }
-func (UnimplementedMyServiceServer) mustEmbedUnimplementedMyServiceServer() {}
 
 // UnsafeMyServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to MyServiceServer will
