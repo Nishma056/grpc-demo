@@ -30,10 +30,10 @@ func main() {
 
 	go func() {
 		for _, req := range []*pb.Request{
-			{Value: "Alice"},
-			{Value: "Bob"},
-			{Value: "Charlie"},
-			{Value: "Dave"},
+			{Value: "aaa"},
+			{Value: "bbb"},
+			{Value: "ccc"},
+			{Value: "ddd"},
 		} {
 			if err := stream.Send(req); err != nil {
 				log.Fatalf("failed to send request: %v", err)
