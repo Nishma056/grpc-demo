@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package myservice;
+
+option go_package = "github.com/Nishma056/myprograms/myservice";
+
+service MyService {
+  rpc BidirectionalStream(stream Request) returns (stream Response) {}
+}
+
+message Request {
+  string value = 1;
+}
+
+message Response {
+  string value = 1;
+}
